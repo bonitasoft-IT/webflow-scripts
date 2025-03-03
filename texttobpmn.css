@@ -117,6 +117,7 @@
   position: absolute;
   z-index: 15;
   /*display: none;*/
+  display: flex;
   align-items: center;
   justify-content: center;
   top: -32px;
