@@ -203,3 +203,19 @@ function getCookie(name) {
     if (parts.length === 2) return parts.pop().split(';').shift();
     return null;
 }
+
+// Function to display error to user
+function displayErrortoUser() {
+    jQuery('.TexttoBPMN-promptandForm-title').html(textMessageTitleError3);
+    jQuery('.TexttoBPMN-error-message').html(textMessageDescriptionError1);
+    /*jQuery('.TexttoBPMN-containerForm').addClass('active');*/
+    scrollToBPMNBloc();
+}
+
+function scrollToBPMNBloc() {
+    if (jQuery('main.navbar').length) {
+        jQuery('html, body').animate({
+            scrollTop: jQuery('.TexttoBPMN-promptandForm-title').offset().top - jQuery('main.navbar').height()
+        }, 1000); // 1000 ms = 1 second
+    }
+  }
