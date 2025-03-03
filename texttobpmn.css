@@ -175,7 +175,7 @@
   font-size: 14px;
 }
 .TexttoBPMN-usermetrics > div:not(#Containeruser-errormessage) {
-  display: none;
+  /*display: none;*/
 }
 .TexttoBPMN-article .field--name-field-bloc-type-paragraph .field--item:first-child .Bloc-dynamic-reverse-ReverseList-element-Button {
   align-items: flex-start;
