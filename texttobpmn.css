@@ -1,46 +1,102 @@
-.texttobpmn-promptandform {
-	position: relative;
-}
-#block-bonitasoft2022-start-the-demo-bpmn-ai {
-    position: absolute;
-    z-index: -1;
-    top: 0px;
-    display: flex;
-    opacity: 0;
-    background: rgba(0, 0, 0, 0.4);
-    left: 0;
-    width: 100%;
-    height: 100%;
-    min-height: 178px;
-    text-align: center;
-    padding: 20px 50px;
-    border-bottom: 1px solid #cecece;
-    transition: 0.5s leftlinear;
-    align-items: center;
-    justify-content: center;
-    transition: opacity 0.25slinear;
+.bpmn-container-absolute {
+  position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
-#block-bonitasoft2022-start-the-demo-bpmn-ai.active {
-    z-index: 10;
-    display: flex;
-    opacity: 1;
+#bpmn-container {
+  overflow-x: auto;
+  overflow-y: hidden;
+  text-align: center;
+  display: flex;
+}
+#bpmn-container:not(:empty) {
+  padding-bottom: 100px;
 }
 
-#block-bonitasoft2022-start-the-demo-bpmn-ai .FormStartDemo {
-    border-radius: 8px;
-    background-color: #fff;
-    border: 1px solid #dedede;
-    padding: 20px;
-    padding-top: 60px;
-    position: relative;
+#bpmn-container svg {
+  width: auto !important;
+  max-width: 100% !important;
+  margin: auto;
+}
+
+.TexttoBPMN-promptandForm .Bloc-dynamic-TitleText-TitleTextList-element-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.TexttoBPMN-promptandForm .FormDownload-title::before {
+  display: none;
+}
+.TexttoBPMN-promptandForm {
+  width: 100%;
+  text-align: center;
+}
+.TexttoBPMN-promptandForm .Bloc-dynamic-TitleText-TitleTextList {
+  display: flex;
+  flex-direction: column;
+  align-itemps: center;
+}
+.TexttoBPMN-user-reached-limit {
+  position: absolute;
+  z-index: 15;
+  /*display: none;*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(128, 128, 128, 0.55);
+}
+.TexttoBPMN-user-reached-limit-container {
+  max-width: 498px;
+  padding: 60px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+}
+.TexttoBPMN-user-reached-limit .Mascotte-Bonita {
+  margin: auto;
+  margin-bottom: 20px;
+}
+.TexttoBPMN-containerForm {
+  padding: 24px;
+  margin: auto;
+  margin-top: 40px;
+  width: 100%;
+  max-width: 780px;
+  display: none;
+}
+.TexttoBPMN-containerForm-charCount {
+  text-align: right;
+}
+.TexttoBPMN-containerForm.active {
+  display: block;
+}
+.TexttoBPMN-loaderBPMN.active {
+  display: block;
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 .TexttoBPMN-loaderBPMN-new {
   display: flex;
   align-items: center;
   justify-content: center;
   margin-top: 20px;
-  /*display: none;*/
+  display: none;
   /* Animation de chaque élément avec un décalage de 10s */
 }
 .TexttoBPMN-loaderBPMN-new.active {
@@ -112,41 +168,79 @@
   animation-delay: 40s;
   animation-fill-mode: forwards;
 }
-
-.TexttoBPMN-user-reached-limit {
-  position: absolute;
-  z-index: 15;
-  /*display: none;*/
-  display: flex;
-  align-items: center;
+.TexttoBPMN-bpmnvisu .Bloc-dynamic-TitleText-TitleTextList-element-title {
+  margin: 20px 0;
+}
+.TexttoBPMN-bpmnvisu .button_theme {
+  font-size: 14px;
+}
+.TexttoBPMN-usermetrics > div:not(#Containeruser-errormessage) {
+  display: none;
+}
+.TexttoBPMN-article .field--name-field-bloc-type-paragraph .field--item:first-child .Bloc-dynamic-reverse-ReverseList-element-Button {
+  align-items: flex-start;
+}
+.TexttoBPMN-article .Bloc-dynamic-TitleText {
   justify-content: center;
+}
+.TexttoBPMN-scrollbutton {
+  margin-top: 20px !important;
+}
+
+.TexttoBPMN-boxshadow, .TexttoBPMN-user-reached-limit-container, .TexttoBPMN-containerForm {
+  border: 1px solid #D9D9D9;
+  border-radius: 8px;
+  box-shadow: 0px 6px 6px 1px rgba(217, 217, 217, 0.4);
+}
+
+#block-bonitasoft2022-start-the-demo-bpmn-ai {
+  position: absolute;
+  z-index: -1;
   top: 0px;
+  display: flex;
+  opacity: 0;
+  background: rgba(0, 0, 0, 0.4);
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(128, 128, 128, 0.55);
-}
-.TexttoBPMN-user-reached-limit-container {
-  max-width: 498px;
-  padding: 60px;
+  min-height: 178px;
   text-align: center;
-  display: flex;
-  flex-direction: column;
+  padding: 20px 50px;
+  border-bottom: 1px solid #cecece;
+  transition: 0.5s left linear;
   align-items: center;
   justify-content: center;
-  background-color: #fff;
+  transition: opacity 0.25s linear;
 }
-.TexttoBPMN-user-reached-limit .Mascotte-Bonita {
-  margin: auto;
-  margin-bottom: 20px;
+#block-bonitasoft2022-start-the-demo-bpmn-ai .FormStartDemo {
+  border-radius: 8px;
 }
-.TexttoBPMN-containerForm {
-  padding: 24px;
+#block-bonitasoft2022-start-the-demo-bpmn-ai.active {
+  z-index: 14;
+  display: flex;
+  opacity: 1;
+}
+
+.TexttoBPMN-formbutton, .TexttoBPMN-promptandForm .webform-button--submit, .TexttoBPMN-containerForm-submit {
+  margin-top: 30px !important;
+  border-radius: 20px !important;
+  display: flex !important;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
   margin: auto;
-  margin-top: 40px;
-  width: 100%;
-  max-width: 780px;
-  display: none;
+}
+.TexttoBPMN-formbutton:before, .TexttoBPMN-promptandForm .webform-button--submit:before, .TexttoBPMN-containerForm-submit:before {
+  content: "";
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='21' fill='none'%3E%3Cpath fill='%23fff' fill-rule='evenodd' d='M14.63.822a1.212 1.212 0 0 1 2.294 0l.649 1.732 1.646.683c1.041.432 1.041 1.982 0 2.415l-1.646.682-.65 1.733a1.21 1.21 0 0 1-2.293 0l-.65-1.733-1.646-.682c-1.041-.433-1.041-1.983 0-2.415l1.646-.683.65-1.732Zm1.146 1.654-.332.888c-.125.334-.377.599-.694.73l-.844.35.844.35c.317.131.569.397.694.73l.333.888.332-.887c.062-.166.155-.316.275-.441a1.23 1.23 0 0 1 .42-.29l.841-.35-.841-.35a1.23 1.23 0 0 1-.42-.29 1.303 1.303 0 0 1-.275-.44l-.333-.888ZM5.272 4.437a1.615 1.615 0 0 1 3.06 0l1.197 3.194 3.034 1.26c1.388.576 1.388 2.642 0 3.219l-3.035 1.26-1.197 3.193a1.615 1.615 0 0 1-3.058 0l-1.197-3.194-3.035-1.26c-1.388-.576-1.388-2.642 0-3.218l3.035-1.26 1.196-3.194Zm1.53.635L5.605 8.266a1.688 1.688 0 0 1-.926.975L1.644 10.5l3.035 1.26c.423.175.758.529.926.974l1.197 3.194L8 12.734c.167-.446.502-.799.927-.975L11.96 10.5 8.926 9.24c-.21-.087-.4-.219-.56-.386a1.74 1.74 0 0 1-.367-.589L6.802 5.071v.001Zm10.77 9.593-.65-1.732a1.211 1.211 0 0 0-2.292 0l-.65 1.732-1.646.683c-1.041.433-1.041 1.983 0 2.415l1.646.683.65 1.732a1.212 1.212 0 0 0 2.294 0l.649-1.732 1.646-.683c1.041-.432 1.041-1.982 0-2.415l-1.646-.683Zm-2.128.81.333-.887.332.887c.125.335.376.599.695.73l.841.35-.841.35c-.319.132-.57.397-.695.732l-.333.887-.332-.887a1.304 1.304 0 0 0-.275-.442 1.23 1.23 0 0 0-.42-.29l-.843-.35.844-.35c.317-.13.569-.395.694-.73Z' clip-rule='evenodd'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  width: 20px;
+  height: 21px;
+  margin-right: 10px;
+  display: block;
+}
+.TexttoBPMN-formbutton:hover:before, .TexttoBPMN-promptandForm .webform-button--submit:hover:before, .TexttoBPMN-containerForm-submit:hover:before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='21' fill='none'%3E%3Cpath fill='%23E22936' fill-rule='evenodd' d='M14.63.822a1.212 1.212 0 0 1 2.294 0l.649 1.732 1.646.683c1.041.432 1.041 1.982 0 2.415l-1.646.682-.65 1.733a1.21 1.21 0 0 1-2.293 0l-.65-1.733-1.646-.682c-1.041-.433-1.041-1.983 0-2.415l1.646-.683.65-1.732Zm1.146 1.654-.332.888c-.125.334-.377.599-.694.73l-.844.35.844.35c.317.131.569.397.694.73l.333.888.332-.887c.062-.166.155-.316.275-.441a1.23 1.23 0 0 1 .42-.29l.841-.35-.841-.35a1.23 1.23 0 0 1-.42-.29 1.303 1.303 0 0 1-.275-.44l-.333-.888ZM5.272 4.437a1.615 1.615 0 0 1 3.06 0l1.197 3.194 3.034 1.26c1.388.576 1.388 2.642 0 3.219l-3.035 1.26-1.197 3.193a1.615 1.615 0 0 1-3.058 0l-1.197-3.194-3.035-1.26c-1.388-.576-1.388-2.642 0-3.218l3.035-1.26 1.196-3.194Zm1.53.635L5.605 8.266a1.688 1.688 0 0 1-.926.975L1.644 10.5l3.035 1.26c.423.175.758.529.926.974l1.197 3.194L8 12.734c.167-.446.502-.799.927-.975L11.96 10.5 8.926 9.24c-.21-.087-.4-.219-.56-.386a1.74 1.74 0 0 1-.367-.589L6.802 5.071v.001Zm10.77 9.593-.65-1.732a1.211 1.211 0 0 0-2.292 0l-.65 1.732-1.646.683c-1.041.433-1.041 1.983 0 2.415l1.646.683.65 1.732a1.212 1.212 0 0 0 2.294 0l.649-1.732 1.646-.683c1.041-.432 1.041-1.982 0-2.415l-1.646-.683Zm-2.128.81.333-.887.332.887c.125.335.376.599.695.73l.841.35-.841.35c-.319.132-.57.397-.695.732l-.333.887-.332-.887a1.304 1.304 0 0 0-.275-.442 1.23 1.23 0 0 0-.42-.29l-.843-.35.844-.35c.317-.13.569-.395.694-.73Z' clip-rule='evenodd'/%3E%3C/svg%3E");
 }
 
 /* Keyframes pour alterner la surbrillance */
