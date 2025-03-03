@@ -23,7 +23,7 @@ const messageErreur = document.getElementById("messageErreur");
 const textMessageTitleError1 = 'Please enter a prompt before generating the BPMN model.';
 const textMessageTitleError2 = 'Oops! It looks like your post contains spam content. If you believe otherwise, please contact us. We apologize for the inconvenience.';
 const textMessageTitleError3 = '😅 Something went wrong!<span class="Mascotte-Bonita"></span>';
-const textMessageDescriptionError1 = "Your request can't be made into a process model as it is written.<br /> Try describing your process again - use simple terms, and be as clear as possible about who does what and in what order. <br /><br /><h2 class='Bloc-dynamic-TitleText-TitleTextList-element-title'>You can try again!</h2>";
+const textMessageDescriptionError1 = "Your request can't be made into a process model as it is written.<br /> Try describing your process again - use simple terms, and be as clear as possible about who does what and in what order. <br /><div class="text-rich-text w-richtext"><h2 class='Bloc-dynamic-TitleText-TitleTextList-element-title'>You can try again!</h2></div>";
 const textMessageTitleProgress1 = 'Hang tight! Your BPMN model is being generated';
 const textMessageTitleSuccess1 = 'We have generated your BPMN model!';
 
