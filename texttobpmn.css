@@ -96,7 +96,7 @@
   align-items: center;
   justify-content: center;
   margin-top: 20px;
-  display: none;
+  /*display: none; */
   /* Animation de chaque élément avec un décalage de 10s */
 }
 .TexttoBPMN-loaderBPMN-new.active {
