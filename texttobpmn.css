@@ -33,6 +33,7 @@
 .TexttoBPMN-promptandForm {
   width: 100%;
   text-align: center;
+  position: relative;
 }
 .TexttoBPMN-promptandForm .Bloc-dynamic-TitleText-TitleTextList {
   display: flex;
