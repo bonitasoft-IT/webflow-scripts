@@ -128,20 +128,20 @@ document.getElementById('user_promp_bpmn_form').addEventListener('submit', async
                         //console.log("Temps écoulé pour saisie du formulaire: " + tempsEcoule + " secondes");
                         document.getElementById("user-timetoclickgenerate").innerHTML= tempsEcoule+'s';
                         usertimetocompleteformafterclicgeneratef = tempsEcoule;
-                        /*
+                        
                         sendDatas();
                         jQuery('.TexttoBPMN-error-message').html('');
                         jQuery('.TexttoBPMN-promptandForm-title').html(textMessageTitleProgress1);
                         jQuery('#block-bonitasoft2022-start-the-demo-bpmn-ai').removeClass('active');
                         jQuery('.TexttoBPMN-loaderBPMN-new').addClass('active');
                         jQuery('.TexttoBPMN-containerForm').removeClass('active');
-                        */
+                        
                     }
                 }else {
-                    /*
+                    
                     sendDatasBeforePrompt();
                     jQuery('#block-bonitasoft2022-start-the-demo-bpmn-ai').addClass('active');
-                    */
+                    
                 }
             }else {
                 jQuery('.TexttoBPMN-user-reached-limit').css('display','flex');
@@ -219,3 +219,169 @@ function scrollToBPMNBloc() {
         }, 1000); // 1000 ms = 1 second
     }
   }
+
+function sendDatasBeforePrompt() {
+    let cookieValue = getCookie(cookieName);
+    
+    debugdelaybegin = new Date();
+    
+    if(cookieValue) {
+        userpromptbydaynumber = cookieValue+1;
+    }else {
+        userpromptbydaynumber = 1;
+    }
+
+    /*temp code - remove when access to api enable*/
+    jQuery('.TexttoBPMN-loaderBPMN-new').removeClass('active');
+    console.log('function sendDatasBeforePrompt launched'); 
+    /*temp code*/
+	
+    /*
+    jQuery.ajax({
+        url: 'bonitatexttobpmn/actions',  // L'URL de ta page PHP
+        type: 'POST',     // Ou 'GET' selon tes besoins
+        contentType: 'application/json',
+        data: JSON.stringify({
+            "browser_fingerprint" : userBrowserFingerprintresult,
+            "prompt" : usertexttobpmnprompt,
+            "time_to_click_to_generate" : userbegintimetogeneratef,
+            "click_to_generate" : userclickedtoboolean,
+            "raised_limit_of_textarea" : userraisedlimittextarea,
+            "tab_forbidden_word_and_click_to_generate" : usertapforbidenword,
+            "time_to_click_on_gating_form" : '0',
+            "has_reached_bpm_limit" : userraisedbpmnlimit,
+            "has_left_page" : userleavepage,
+            "is_form_filled" : false, //dans ce cas, retour "ok" seulement.
+            "userpromptbydaynumber" : userpromptbydaynumber
+        }),
+        success: function(response) {
+            // Code à exécuter lorsque l'appel est réussi
+            //console.log(response);
+            jQuery('.TexttoBPMN-loaderBPMN-new').removeClass('active');
+            tempsEcoule = getTempsecoule(debugdelaybegin);
+            console.log("Debug delay send and get return data before prompt : " + tempsEcoule + " secondes");
+            if(response.error) {
+                
+            }else if(!response.api_response) {
+                
+            }else {
+                
+            }
+        },error: function(xhr, status, error) {
+                // Code à exécuter en cas d'erreur
+                console.error('Erreur : ' + error);
+        }
+    });
+    */
+
+}
+
+function sendDatas() {
+    let cookieValue = getCookie(cookieName);
+
+    debugdelaybegin = new Date();
+
+    if(cookieValue) {
+        userpromptbydaynumber = parseInt(cookieValue, 10) + 1;
+    }else {
+        userpromptbydaynumber = 1;
+    }
+
+    /*temp code - remove when access to api enable*/
+    loadBpmn(response.api_response.bpmn_content);
+    jQuery('.TexttoBPMN-promptandForm-title').html(textMessageTitleSuccess1);
+    jQuery('.TexttoBPMN-bpmnvisu .Bloc-dynamic-Buttons').css('display','block');
+    /*jQuery('.TexttoBPMN-bpmnvisu .Bloc-dynamic-Buttons-bpmnfile').attr('href', response.fileurltemp);*/
+    console.log('function sendDatas launched'); 
+    /*temp code*/
+
+    /*
+    jQuery.ajax({
+        url: 'bonitatexttobpmn/actions',  // L'URL de ta page PHP
+        type: 'POST',     // Ou 'GET' selon tes besoins
+        contentType: 'application/json',
+
+        data: JSON.stringify({
+            "browser_fingerprint" : userBrowserFingerprintresult,
+            "prompt" : usertexttobpmnprompt,
+            "time_to_click_to_generate" : userbegintimetogeneratef,
+            "click_to_generate" : userclickedtoboolean,
+            "raised_limit_of_textarea" : userraisedlimittextarea,
+            "tab_forbidden_word_and_click_to_generate" : usertapforbidenword,
+            "time_to_click_on_gating_form" : usertimetocompleteformafterclicgeneratef,
+            "has_reached_bpm_limit" : userraisedbpmnlimit,
+            "has_left_page" : userleavepage,
+            "is_form_filled" : true,
+            "userpromptbydaynumber" : userpromptbydaynumber
+            //si prompt toxique, retour code http "error" : 400 bad request
+        }),
+        success: function(response) {
+            // Code à exécuter lorsque l'appel est réussi
+            console.log(response.error_code);
+            jQuery('.TexttoBPMN-loaderBPMN-new').removeClass('active');
+            tempsEcoule = getTempsecoule(debugdelaybegin);
+            console.log("Debug delay send and get return data prompt : " + tempsEcoule + " secondes");
+            if(response.error_code) {
+                console.log('Erreur : '+response.error);
+                displayErrortoUser();
+                if(response.error_code == 429) {
+                    cookieValue = 3;
+                    userraisedbpmnlimit = true;
+                    setCookie(cookieName, cookieValue, 1);
+                    jQuery('.TexttoBPMN-user-reached-limit').css('display','flex');
+                }
+                scrollToBPMNBloc();
+            }else if(!response.api_response) {
+                //console.log('Erreur : '+response.message);
+                displayErrortoUser();
+                scrollToBPMNBloc();
+            }else {
+                if(response && response.api_response && response.api_response.bpmn_content && response.api_response.bpmn_content != null) {
+                    loadBpmn(response.api_response.bpmn_content);
+                    jQuery('.TexttoBPMN-promptandForm-title').html(textMessageTitleSuccess1);
+                    jQuery('.TexttoBPMN-bpmnvisu .Bloc-dynamic-Buttons').css('display','block');
+                    jQuery('.TexttoBPMN-bpmnvisu .Bloc-dynamic-Buttons-bpmnfile').attr('href', response.fileurltemp);
+                    // Check if the cookie exists
+                    if (cookieValue) {
+                        if(cookieValue < 3) {
+                            //console.log('Cookie exists:', cookieValue);
+                            // Increment the cookie value by 1 and update the cookie
+                            cookieValue = parseInt(cookieValue, 10) + 1;
+                            setCookie(cookieName, cookieValue, 1);
+                        }else {
+                            jQuery('.TexttoBPMN-user-reached-limit').css('display','flex');
+                            userraisedbpmnlimit = true;
+                        }
+                    } else {
+                        // Create a new cookie with the current date as the value and expiration date set to the end of the day
+                        setCookie(cookieName, '1', 1); // Set the cookie to expire in 1 day
+                        cookieValue = getCookie(cookieName);
+                        //console.log('New cookie created:', cookieValue);
+                    }
+                    scrollToBPMNBloc();
+                }else {
+                    displayErrortoUser();
+                }
+            }
+        },
+        error: function(xhr, status, error) {
+            // Code à exécuter en cas d'erreur
+            console.error('Erreur : ' + error);
+            jQuery('.TexttoBPMN-loaderBPMN-new').removeClass('active');
+            displayErrortoUser();
+        }
+    });
+    */
+}
+
+jQuery(document).ready(function() {
+    // Define the click event handler for the button with ID 'your-button-id'
+    /*
+    jQuery('.field--name-field-bloc-type-paragraph .field--item:first-child .Bloc-dynamic-reverse-ReverseList-element-Button').addClass('TexttoBPMN-scrollbuttonContainer');
+    jQuery('.field--name-field-bloc-type-paragraph .field--item:first-child .button_theme').addClass('TexttoBPMN-scrollbutton');
+    jQuery('.TexttoBPMN-scrollbutton').on('click', function(e) {
+        e.preventDefault();
+        scrollToBPMNBloc();
+    });
+    */
+});
