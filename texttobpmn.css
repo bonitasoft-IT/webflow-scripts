@@ -42,8 +42,7 @@
 .TexttoBPMN-user-reached-limit {
   position: absolute;
   z-index: 15;
-  /*display: none;*/
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   top: 0px;
@@ -91,11 +90,10 @@
   }
 }
 .TexttoBPMN-loaderBPMN-new {
-  display: flex;
   align-items: center;
   justify-content: center;
   margin-top: 20px;
-  /*display: none; */
+  display: none; 
   /* Animation de chaque élément avec un décalage de 10s */
 }
 .TexttoBPMN-loaderBPMN-new.active {
