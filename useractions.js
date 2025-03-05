@@ -151,6 +151,34 @@ document.getElementById('user_promp_bpmn_form').addEventListener('submit', async
 });
 
 
+document.getElementById('webform-submission-start-the-demo-node-20652-form-ajax').addEventListener('submit', async function(e) {
+	e.preventDefault(); // Empêche le rechargement de la page lors de la soumission
+	jQuery('.TexttoBPMN-promptandForm-title').html("Hang tight! Your BPMN model is being generated");
+	jQuery('#block-bonitasoft2022-start-the-demo-bpmn-ai').removeClass('active');
+	jQuery('.TexttoBPMN-loaderBPMN-new').addClass('active');
+	jQuery('.TexttoBPMN-containerForm').removeClass('active');
+	let cookieValue = getCookie('userformdemofilled');
+	if (cookieValue) {
+	    if(cookieValue == 1) {
+		//console.log('Cookie exists:', cookieValue);
+		// Increment the cookie value by 1 and update the cookie
+	    }else {
+		//jQuery('.TexttoBPMN-user-reached-limit').css('display','flex');
+	    }
+	}else {
+	    // Create a new cookie with the current date as the value and expiration date set to the end of the day
+	    setCookie('userformdemofilled', '1', 1); // Set the cookie to expire in 1 day
+	    cookieValue = getCookie('userformdemofilled');
+	    //console.log('New cookie created:', cookieValue);
+	    tempsEcoule = getTempsecoule(usertimetocompleteformafterclicgenerate);
+	    //console.log("Temps écoulé pour saisie du formulaire: " + tempsEcoule + " secondes");
+	    document.getElementById("user-timetoclickgenerate").innerHTML= tempsEcoule+'s';
+	    usertimetocompleteformafterclicgeneratef = tempsEcoule;
+	    sendDatas();
+	}
+});
+
+
 function getBrowserFingerprint() {
     // Récupération des informations de base du navigateur
     const userAgent = navigator.userAgent;
@@ -288,7 +316,8 @@ function sendDatas() {
     }
 
     /*temp code - remove when access to api enable*/
-    loadBpmn(response.api_response.bpmn_content);
+    /*loadBpmn(response.api_response.bpmn_content);*/
+    loadBpmnFromUrl('https://bonitasoft-it.github.io/webflow-scripts/diagram.bpmn');
     jQuery('.TexttoBPMN-promptandForm-title').html(textMessageTitleSuccess1);
     jQuery('.TexttoBPMN-bpmnvisu .Bloc-dynamic-Buttons').css('display','block');
     /*jQuery('.TexttoBPMN-bpmnvisu .Bloc-dynamic-Buttons-bpmnfile').attr('href', response.fileurltemp);*/
