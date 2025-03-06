@@ -266,7 +266,7 @@ function sendDatasBeforePrompt() {
 	
     
     jQuery.ajax({
-        url: 'bonitatexttobpmn/actions',  // L'URL de ta page PHP
+        url: 'https://text2bpmnleadmagnet-dev.bonitasoft.com/bonitatexttobpmn/api/process_user_interaction',  // L'URL de ta page PHP
         type: 'POST',     // Ou 'GET' selon tes besoins
         contentType: 'application/json',
         data: JSON.stringify({
