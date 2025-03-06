@@ -401,6 +401,7 @@ function sendDatas() {
         },
         error: function(xhr, status, error) {
             // Code à exécuter en cas d'erreur
+	    console.error('Code d\'erreur : ' + xhr.status);
             console.log('Erreur : ',status,error,xhr);
             jQuery('.TexttoBPMN-loaderBPMN-new').removeClass('active');
             displayErrortoUser();
