@@ -279,7 +279,7 @@ function sendDatasBeforePrompt() {
             "time_to_click_on_gating_form" : '0',
             "has_reached_bpm_limit" : userraisedbpmnlimit,
             "has_left_page" : userleavepage,
-            "is_form_filled" : false
+            "is_form_filled" : false,
         }),
         success: function(response) {
             // Code à exécuter lorsque l'appel est réussi
@@ -298,7 +298,7 @@ function sendDatasBeforePrompt() {
 	    */
         },error: function(xhr, status, error) {
                 // Code à exécuter en cas d'erreur
-                console.error('Erreur : ' + error);
+                console.error('Erreur : ', status, error, xhr);
         }
     });
     
