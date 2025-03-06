@@ -264,7 +264,7 @@ function sendDatasBeforePrompt() {
     console.log('function sendDatasBeforePrompt launched'); 
     /*temp code*/
 	
-    /*
+    
     jQuery.ajax({
         url: 'bonitatexttobpmn/actions',  // L'URL de ta page PHP
         type: 'POST',     // Ou 'GET' selon tes besoins
@@ -284,8 +284,9 @@ function sendDatasBeforePrompt() {
         }),
         success: function(response) {
             // Code à exécuter lorsque l'appel est réussi
-            //console.log(response);
-            jQuery('.TexttoBPMN-loaderBPMN-new').removeClass('active');
+            console.log(response);
+            /*
+	    jQuery('.TexttoBPMN-loaderBPMN-new').removeClass('active');
             tempsEcoule = getTempsecoule(debugdelaybegin);
             console.log("Debug delay send and get return data before prompt : " + tempsEcoule + " secondes");
             if(response.error) {
@@ -295,12 +296,13 @@ function sendDatasBeforePrompt() {
             }else {
                 
             }
+	    */
         },error: function(xhr, status, error) {
                 // Code à exécuter en cas d'erreur
                 console.error('Erreur : ' + error);
         }
     });
-    */
+    
 
 }
 
