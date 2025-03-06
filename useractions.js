@@ -139,7 +139,8 @@ document.getElementById('user_promp_bpmn_form').addEventListener('submit', async
                     }
                 }else {
                     
-                    sendDatasBeforePrompt();
+                    //sendDatasBeforePrompt();
+		    sendDatas();
                     jQuery('#block-bonitasoft2022-start-the-demo-bpmn-ai').addClass('active');
                     
                 }
@@ -319,16 +320,16 @@ function sendDatas() {
 
     /*temp code - remove when access to api enable*/
     /*loadBpmn(response.api_response.bpmn_content);*/
-    loadBpmnFromUrl('https://bonitasoft-it.github.io/webflow-scripts/diagram.bpmn');
+    //loadBpmnFromUrl('https://bonitasoft-it.github.io/webflow-scripts/diagram.bpmn');
     jQuery('.TexttoBPMN-promptandForm-title').html(textMessageTitleSuccess1);
     jQuery('.TexttoBPMN-bpmnvisu .Bloc-dynamic-Buttons').css('display','block');
     /*jQuery('.TexttoBPMN-bpmnvisu .Bloc-dynamic-Buttons-bpmnfile').attr('href', response.fileurltemp);*/
     console.log('function sendDatas launched'); 
     /*temp code*/
 
-    /*
+    
     jQuery.ajax({
-        url: 'bonitatexttobpmn/actions',  // L'URL de ta page PHP
+        url: 'https://text2bpmnleadmagnet-dev.bonitasoft.com/api/process_user_interaction',  // L'URL de ta page PHP
         type: 'POST',     // Ou 'GET' selon tes besoins
         contentType: 'application/json',
 
@@ -343,13 +344,15 @@ function sendDatas() {
             "has_reached_bpm_limit" : userraisedbpmnlimit,
             "has_left_page" : userleavepage,
             "is_form_filled" : true,
-            "userpromptbydaynumber" : userpromptbydaynumber
+            //"userpromptbydaynumber" : userpromptbydaynumber
             //si prompt toxique, retour code http "error" : 400 bad request
         }),
         success: function(response) {
             // Code à exécuter lorsque l'appel est réussi
-            console.log(response.error_code);
-            jQuery('.TexttoBPMN-loaderBPMN-new').removeClass('active');
+            //console.log(response.error_code);
+	    console.log(response);
+            /*
+	    jQuery('.TexttoBPMN-loaderBPMN-new').removeClass('active');
             tempsEcoule = getTempsecoule(debugdelaybegin);
             console.log("Debug delay send and get return data prompt : " + tempsEcoule + " secondes");
             if(response.error_code) {
@@ -394,15 +397,16 @@ function sendDatas() {
                     displayErrortoUser();
                 }
             }
+	    */
         },
         error: function(xhr, status, error) {
             // Code à exécuter en cas d'erreur
-            console.error('Erreur : ' + error);
+            console.log('Erreur : ',status,error,xhr);
             jQuery('.TexttoBPMN-loaderBPMN-new').removeClass('active');
             displayErrortoUser();
         }
     });
-    */
+    
 }
 
 jQuery(document).ready(function() {
