@@ -279,7 +279,7 @@ function sendDatasBeforePrompt() {
             "time_to_click_on_gating_form" : '0',
             "has_reached_bpm_limit" : userraisedbpmnlimit,
             "has_left_page" : userleavepage,
-            "is_form_filled" : fals
+            "is_form_filled" : false
         }),
         success: function(response) {
             // Code à exécuter lorsque l'appel est réussi
