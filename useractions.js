@@ -299,7 +299,8 @@ function sendDatasBeforePrompt() {
         },error: function(xhr, status, error) {
                 // Code à exécuter en cas d'erreur
                 console.error('Erreur : ', status, error, xhr);
-        }
+        },
+	 dataType: 'json', // Expect JSON response from the server
     });
     
 
