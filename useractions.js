@@ -357,6 +357,8 @@ function sendDatas() {
             // Code à exécuter lorsque l'appel est réussi
             //console.log(response.error_code);
 	    console.log(response);
+	    jQuery('.TexttoBPMN-loaderBPMN-new').removeClass('active');
+            tempsEcoule = getTempsecoule(debugdelaybegin);
 	     if(response && response.api_response && response.api_response.bpmn_content && response.api_response.bpmn_content != null) {
 		    loadBpmn(response.api_response.bpmn_content);
 		    jQuery('.TexttoBPMN-promptandForm-title').html(textMessageTitleSuccess1);
