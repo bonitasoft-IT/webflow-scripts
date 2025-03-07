@@ -167,9 +167,10 @@
   animation-fill-mode: forwards;
 }
 .TexttoBPMN-bpmnvisu {
-  position : relative;
-  width: 100vw;
-  margin-left: -312px;
+  position: relative;
+  width: calc(100vw - 16px);
+  margin-left: -192px;
+  padding: 0 20px;
 }
 
 @media screen and (min-width: 1920px) {
