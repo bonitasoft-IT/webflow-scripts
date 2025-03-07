@@ -327,8 +327,8 @@ function sendDatas() {
     /*temp code - remove when access to api enable*/
     /*loadBpmn(response.api_response.bpmn_content);*/
     //loadBpmnFromUrl('https://bonitasoft-it.github.io/webflow-scripts/diagram.bpmn');
-    jQuery('.TexttoBPMN-promptandForm-title').html(textMessageTitleSuccess1);
-    jQuery('.TexttoBPMN-bpmnvisu .Bloc-dynamic-Buttons').css('display','block');
+    //jQuery('.TexttoBPMN-promptandForm-title').html(textMessageTitleSuccess1);
+    //jQuery('.TexttoBPMN-bpmnvisu .Bloc-dynamic-Buttons').css('display','block');
     /*jQuery('.TexttoBPMN-bpmnvisu .Bloc-dynamic-Buttons-bpmnfile').attr('href', response.fileurltemp);*/
     console.log('function sendDatas launched'); 
     /*temp code*/
