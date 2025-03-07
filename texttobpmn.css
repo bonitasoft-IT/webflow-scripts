@@ -166,6 +166,9 @@
   animation-delay: 40s;
   animation-fill-mode: forwards;
 }
+.TexttoBPMN-bpmnvisu {
+  position : relative;
+}
 .TexttoBPMN-bpmnvisu .Bloc-dynamic-TitleText-TitleTextList-element-title {
   margin: 20px 0;
 }
