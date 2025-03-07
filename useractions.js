@@ -351,6 +351,33 @@ function sendDatas() {
             // Code à exécuter lorsque l'appel est réussi
             //console.log(response.error_code);
 	    console.log(response);
+	     if(response && response.api_response && response.api_response.bpmn_content && response.api_response.bpmn_content != null) {
+		    loadBpmn(response.api_response.bpmn_content);
+		    jQuery('.TexttoBPMN-promptandForm-title').html(textMessageTitleSuccess1);
+		    jQuery('.TexttoBPMN-bpmnvisu .Bloc-dynamic-Buttons').css('display','block');
+		    //jQuery('.TexttoBPMN-bpmnvisu .Bloc-dynamic-Buttons-bpmnfile').attr('href', response.fileurltemp);
+		    // Check if the cookie exists
+		    if (cookieValue) {
+			if(cookieValue < 3) {
+			    //console.log('Cookie exists:', cookieValue);
+			    // Increment the cookie value by 1 and update the cookie
+			    cookieValue = parseInt(cookieValue, 10) + 1;
+			    setCookie(cookieName, cookieValue, 1);
+			}else {
+			    jQuery('.TexttoBPMN-user-reached-limit').css('display','flex');
+			    userraisedbpmnlimit = true;
+			}
+		    } else {
+			// Create a new cookie with the current date as the value and expiration date set to the end of the day
+			setCookie(cookieName, '1', 1); // Set the cookie to expire in 1 day
+			cookieValue = getCookie(cookieName);
+			//console.log('New cookie created:', cookieValue);
+		    }
+		    scrollToBPMNBloc();
+		}else {
+		    displayErrortoUser();
+		    scrollToBPMNBloc();
+		}
             /*
 	    jQuery('.TexttoBPMN-loaderBPMN-new').removeClass('active');
             tempsEcoule = getTempsecoule(debugdelaybegin);
@@ -405,6 +432,12 @@ function sendDatas() {
             console.log('Erreur : ',status,error,xhr);
             jQuery('.TexttoBPMN-loaderBPMN-new').removeClass('active');
             displayErrortoUser();
+	    if(xhr.status === 429) {
+	        cookieValue = 3;
+		userraisedbpmnlimit = true;
+		setCookie(cookieName, cookieValue, 1);
+		jQuery('.TexttoBPMN-user-reached-limit').css('display','flex');
+	    }
         }
     });
     
