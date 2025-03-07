@@ -141,7 +141,13 @@ document.getElementById('user_promp_bpmn_form').addEventListener('submit', async
                     
                     //sendDatasBeforePrompt();
 		    sendDatas();
-                    jQuery('#block-bonitasoft2022-start-the-demo-bpmn-ai').addClass('active');
+                    //jQuery('#block-bonitasoft2022-start-the-demo-bpmn-ai').addClass('active');
+		    //temp
+		    jQuery('.TexttoBPMN-error-message').html('');
+                    jQuery('.TexttoBPMN-promptandForm-title').html(textMessageTitleProgress1);
+                    jQuery('#block-bonitasoft2022-start-the-demo-bpmn-ai').removeClass('active');
+                    jQuery('.TexttoBPMN-loaderBPMN-new').addClass('active');
+                    jQuery('.TexttoBPMN-containerForm').removeClass('active');
                     
                 }
             }else {
