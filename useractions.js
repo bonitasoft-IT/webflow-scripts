@@ -363,7 +363,7 @@ function sendDatas() {
 		    loadBpmn(response.api_response.bpmn_content);
 		    jQuery('.TexttoBPMN-promptandForm-title').html(textMessageTitleSuccess1);
 		    jQuery('.TexttoBPMN-bpmnvisu .Bloc-dynamic-Buttons').css('display','block');
-		    createTempfileAndAssignToButton('bpmn_' + userBrowserFingerprintresult + '_' + userpromptbydaynumber, 'Bloc-dynamic-Buttons-bpmnfile', response.api_response.bpmn_content);
+		    createTempfileAndAssignToButton('bpmn_' + userBrowserFingerprintresult + '_' + userpromptbydaynumber + '.bpmn', 'Bloc-dynamic-Buttons-bpmnfile', response.api_response.bpmn_content);
 		    //jQuery('.TexttoBPMN-bpmnvisu .Bloc-dynamic-Buttons-bpmnfile').attr('href', response.fileurltemp);
 		    // Check if the cookie exists
 		    if (cookieValue) {
