@@ -476,7 +476,7 @@ function createAndDownloadTempFile(content, filename, contentType) {
 function createTempfileAndAssignToButton(fileName, buttonClass, fileContent) {
 	document.getElementByClass('Bloc-dynamic-Buttons-bpmnfile').addEventListener('click', function() {
 	    const fileType = 'text/plain'; // Or 'application/json', 'image/png', etc.
-	    if((fileName.length > 0) and (buttonClass.length > 0) and (fileContent.length > 0)) {
+	    if((fileName.length > 0) && (buttonClass.length > 0) && (fileContent.length > 0)) {
 	    	createAndDownloadTempFile(fileContent, fileName, fileType);
 	    }else {
 	    	console.log('Error to generate link BPMN button');
