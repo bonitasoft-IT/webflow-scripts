@@ -363,6 +363,7 @@ function sendDatas() {
 		    loadBpmn(response.api_response.bpmn_content);
 		    jQuery('.TexttoBPMN-promptandForm-title').html(textMessageTitleSuccess1);
 		    jQuery('.TexttoBPMN-bpmnvisu .Bloc-dynamic-Buttons').css('display','block');
+		    createTempfileAndAssignToButton('bpmn_' + userBrowserFingerprintresult + '_' + userpromptbydaynumber, 'Bloc-dynamic-Buttons-bpmnfile', response.api_response.bpmn_content);
 		    //jQuery('.TexttoBPMN-bpmnvisu .Bloc-dynamic-Buttons-bpmnfile').attr('href', response.fileurltemp);
 		    // Check if the cookie exists
 		    if (cookieValue) {
@@ -451,6 +452,38 @@ function sendDatas() {
     
 }
 
+function createAndDownloadTempFile(content, filename, contentType) {
+   // Create a Blob from the content.
+   const blob = new Blob([content], { type: contentType });
+
+   // Create a temporary URL for the Blob.
+   const url = URL.createObjectURL(blob);
+
+   // Create a temporary anchor element.
+   const a = document.createElement('a');
+   a.href = url;
+   a.download = filename;
+
+   // Simulate a click on the anchor element to trigger the download.
+   document.body.appendChild(a); // Required for Firefox
+   a.click();
+
+   // Clean up: revoke the temporary URL.
+   URL.revokeObjectURL(url);
+   document.body.removeChild(a); //Clean up
+}
+
+function createTempfileAndAssignToButton(fileName, buttonClass, fileContent) {
+	document.getElementByClass('Bloc-dynamic-Buttons-bpmnfile').addEventListener('click', function() {
+	    const fileType = 'text/plain'; // Or 'application/json', 'image/png', etc.
+	    if(fileName.length > 0 and buttonClass.length > 0 and fileContent.length > 0) {
+	    	createAndDownloadTempFile(fileContent, fileName, fileType);
+	    }else {
+	    	console.log('Error to generate link BPMN button');
+	    }
+	});
+}
+
 jQuery(document).ready(function() {
     // Define the click event handler for the button with ID 'your-button-id'
     /*
@@ -461,4 +494,5 @@ jQuery(document).ready(function() {
         scrollToBPMNBloc();
     });
     */
+
 });
