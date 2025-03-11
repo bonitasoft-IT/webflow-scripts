@@ -168,7 +168,7 @@
 }
 .TexttoBPMN-bpmnvisu {
   position: relative;
-  width: calc(100vw - 16px);
+  /*width: calc(100vw - 16px);*/
   /*margin-left: -192px;*/
   padding: 0 20px;
 }
