@@ -205,15 +205,15 @@
 }
 
 #block-bonitasoft2022-start-the-demo-bpmn-ai {
-  position: absolute;
+  position: fixed;
   z-index: -1;
-  top: 0px;
+  top: 105px;
   display: flex;
   opacity: 0;
   background: rgba(0, 0, 0, 0.4);
   left: 0;
   width: 100%;
-  height: 100%;
+  height: calc(100% - 105px);
   min-height: 178px;
   text-align: center;
   padding: 20px 50px;
@@ -223,8 +223,8 @@
   justify-content: center;
   transition: opacity 0.25s linear;
 }
-#block-bonitasoft2022-start-the-demo-bpmn-ai .FormStartDemo {
-  border-radius: 8px;
+#block-bonitasoft2022-start-the-demo-bpmn-ai form {
+  max-width: 55rem;
 }
 #block-bonitasoft2022-start-the-demo-bpmn-ai.active {
   z-index: 14;
