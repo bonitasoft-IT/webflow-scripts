@@ -476,11 +476,20 @@ function createTempfileAndAssignToButton(fileName, buttonClass, fileContent) {
 	});
 }
 
-const formOne = document.querySelector('form#plz-form-3ecd1ded-f3fc-4cf6-9c82-104d7da65669') // id du form ou un selector de ton choix
+jQuery(document).ready(function() {
+    // Define the click event handler for the button with ID 'your-button-id'
+    /*
+    jQuery('.field--name-field-bloc-type-paragraph .field--item:first-child .Bloc-dynamic-reverse-ReverseList-element-Button').addClass('TexttoBPMN-scrollbuttonContainer');
+    jQuery('.field--name-field-bloc-type-paragraph .field--item:first-child .button_theme').addClass('TexttoBPMN-scrollbutton');
+    jQuery('.TexttoBPMN-scrollbutton').on('click', function(e) {
+        e.preventDefault();
+        scrollToBPMNBloc();
+    });
+    */
 
-formOne.addEventListener(
-  'submit', 
-  function(e) {
+    const formOne = document.querySelector('form#plz-form-3ecd1ded-f3fc-4cf6-9c82-104d7da65669') // id du form ou un selector de ton choix
+
+formOne.addEventListener('submit', function(e) {
      //console.log('Text to BPMN form validation ok');
      jQuery('.TexttoBPMN-promptandForm-title').html("Hang tight! Your BPMN model is being generated");
      jQuery('#block-bonitasoft2022-start-the-demo-bpmn-ai').removeClass('active');
@@ -507,16 +516,5 @@ formOne.addEventListener(
      }
     return true
 });
-
-jQuery(document).ready(function() {
-    // Define the click event handler for the button with ID 'your-button-id'
-    /*
-    jQuery('.field--name-field-bloc-type-paragraph .field--item:first-child .Bloc-dynamic-reverse-ReverseList-element-Button').addClass('TexttoBPMN-scrollbuttonContainer');
-    jQuery('.field--name-field-bloc-type-paragraph .field--item:first-child .button_theme').addClass('TexttoBPMN-scrollbutton');
-    jQuery('.TexttoBPMN-scrollbutton').on('click', function(e) {
-        e.preventDefault();
-        scrollToBPMNBloc();
-    });
-    */
 
 });
