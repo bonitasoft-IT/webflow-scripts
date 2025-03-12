@@ -487,34 +487,38 @@ jQuery(document).ready(function() {
     });
     */
 
-    const formOne = document.getElementById('plz-form-3ecd1ded-f3fc-4cf6-9c82-104d7da65669') // id du form ou un selector de ton choix
+    var delayInMilliseconds = 3000;
 
-formOne.addEventListener('submit', function(e) {
-     console.log('Text to BPMN form validation ok');
-     jQuery('.TexttoBPMN-promptandForm-title').html("Hang tight! Your BPMN model is being generated");
-     jQuery('#block-bonitasoft2022-start-the-demo-bpmn-ai').removeClass('active');
-     jQuery('.TexttoBPMN-loaderBPMN-new').addClass('active');
-     jQuery('.TexttoBPMN-containerForm').removeClass('active');
-     let cookieValue = getCookie('userformdemofilled');
-     if (cookieValue) {
-         if(cookieValue == 1) {
-             //console.log('Cookie exists:', cookieValue);
-             // Increment the cookie value by 1 and update the cookie
-         }else {
-             //jQuery('.TexttoBPMN-user-reached-limit').css('display','flex');
-         }
-     }else {
-         // Create a new cookie with the current date as the value and expiration date set to the end of the day
-         setCookie('userformdemofilled', '1', 1); // Set the cookie to expire in 1 day
-         cookieValue = getCookie('userformdemofilled');
-         //console.log('New cookie created:', cookieValue);
-         tempsEcoule = getTempsecoule(usertimetocompleteformafterclicgenerate);
-         //console.log("Temps écoulé pour saisie du formulaire: " + tempsEcoule + " secondes");
-         document.getElementById("user-timetoclickgenerate").innerHTML= tempsEcoule+'s';
-         usertimetocompleteformafterclicgeneratef = tempsEcoule;
-         //sendDatas();
-     }
-    return true
-});
+    setTimeout(function() {
+        const formOne = document.getElementById('plz-form-3ecd1ded-f3fc-4cf6-9c82-104d7da65669') // id du form ou un selector de ton choix
+
+        formOne.addEventListener('submit', function(e) {
+            console.log('Text to BPMN form validation ok');
+            jQuery('.TexttoBPMN-promptandForm-title').html("Hang tight! Your BPMN model is being generated");
+            jQuery('#block-bonitasoft2022-start-the-demo-bpmn-ai').removeClass('active');
+            jQuery('.TexttoBPMN-loaderBPMN-new').addClass('active');
+            jQuery('.TexttoBPMN-containerForm').removeClass('active');
+            let cookieValue = getCookie('userformdemofilled');
+            if (cookieValue) {
+                if(cookieValue == 1) {
+                    //console.log('Cookie exists:', cookieValue);
+                    // Increment the cookie value by 1 and update the cookie
+                }else {
+                    //jQuery('.TexttoBPMN-user-reached-limit').css('display','flex');
+                }
+            }else {
+                // Create a new cookie with the current date as the value and expiration date set to the end of the day
+                setCookie('userformdemofilled', '1', 1); // Set the cookie to expire in 1 day
+                cookieValue = getCookie('userformdemofilled');
+                //console.log('New cookie created:', cookieValue);
+                tempsEcoule = getTempsecoule(usertimetocompleteformafterclicgenerate);
+                //console.log("Temps écoulé pour saisie du formulaire: " + tempsEcoule + " secondes");
+                document.getElementById("user-timetoclickgenerate").innerHTML= tempsEcoule+'s';
+                usertimetocompleteformafterclicgeneratef = tempsEcoule;
+                //sendDatas();
+            }
+            return true;    
+        });
+    }, delayInMilliseconds);
 
 });
