@@ -515,7 +515,7 @@ jQuery(document).ready(function() {
                 //console.log("Temps écoulé pour saisie du formulaire: " + tempsEcoule + " secondes");
                 document.getElementById("user-timetoclickgenerate").innerHTML= tempsEcoule+'s';
                 usertimetocompleteformafterclicgeneratef = tempsEcoule;
-                //sendDatas();
+                sendDatas();
             }
             return true;    
         });
