@@ -490,7 +490,7 @@ jQuery(document).ready(function() {
     const formOne = document.querySelector('form#plz-form-3ecd1ded-f3fc-4cf6-9c82-104d7da65669') // id du form ou un selector de ton choix
 
 formOne.addEventListener('submit', function(e) {
-     //console.log('Text to BPMN form validation ok');
+     console.log('Text to BPMN form validation ok');
      jQuery('.TexttoBPMN-promptandForm-title').html("Hang tight! Your BPMN model is being generated");
      jQuery('#block-bonitasoft2022-start-the-demo-bpmn-ai').removeClass('active');
      jQuery('.TexttoBPMN-loaderBPMN-new').addClass('active');
