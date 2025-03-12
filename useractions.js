@@ -512,7 +512,7 @@ formOne.addEventListener('submit', function(e) {
          //console.log("Temps écoulé pour saisie du formulaire: " + tempsEcoule + " secondes");
          document.getElementById("user-timetoclickgenerate").innerHTML= tempsEcoule+'s';
          usertimetocompleteformafterclicgeneratef = tempsEcoule;
-         sendDatas();
+         //sendDatas();
      }
     return true
 });
