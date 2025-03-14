@@ -371,12 +371,11 @@
   -webkit-border-radius: 20px;
   border-radius: 20px;
   display: inline-flex !important;
-  padding: 38px 14px 12px 14px !important;
+  padding: 12px 14px 12px 38px !important;
   align-items: center !important;
   gap: 2px !important;
   border-radius: 12px !important;
   border: 1px solid var(--Stroke-Gradient-Red-Button, #FF8F97) !important;
-  background: var(--Fill-Gradient-Red-Button, radial-gradient(279.05% 50% at 50% 50%, #FF3D48 0%, #D94B57 100%)) !important;
   box-shadow: 0px 6px 30px 0px rgba(219, 75, 87, 0.60) !important;
   backdrop-filter: blur(8px) !important;
   text-decoration: none;
