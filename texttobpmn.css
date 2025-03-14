@@ -242,7 +242,7 @@
   max-width: 55rem;
 }
 #block-bonitasoft2022-start-the-demo-bpmn-ai.active {
-  z-index: 14;
+  z-index: 3;
   display: flex;
   opacity: 1;
   overflow-y: auto;
