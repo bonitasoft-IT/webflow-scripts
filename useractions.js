@@ -235,7 +235,7 @@ function getCookie(name) {
 function displayErrortoUser() {
     jQuery('.TexttoBPMN-promptandForm-title').html(textMessageTitleError3);
     jQuery('.TexttoBPMN-error-message').html(textMessageDescriptionError1);
-    /*jQuery('.TexttoBPMN-containerForm').addClass('active');*/
+    jQuery('.TexttoBPMN-containerForm').addClass('active');
     scrollToBPMNBloc();
 }
 
