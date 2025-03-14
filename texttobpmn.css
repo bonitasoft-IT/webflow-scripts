@@ -232,6 +232,12 @@
     height: calc(100% - 142px);
   }
 }
+@media (max-width: 990px) {
+  #block-bonitasoft2022-start-the-demo-bpmn-ai {
+    top: 60px;
+    height: calc(100% - 60px);
+  }
+}
 #block-bonitasoft2022-start-the-demo-bpmn-ai form {
   max-width: 55rem;
 }
