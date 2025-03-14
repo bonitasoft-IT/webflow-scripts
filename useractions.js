@@ -135,7 +135,7 @@ document.getElementById('user_promp_bpmn_form').addEventListener('submit', async
                         jQuery('#block-bonitasoft2022-start-the-demo-bpmn-ai').removeClass('active');
                         jQuery('.TexttoBPMN-loaderBPMN-new').addClass('active');
                         jQuery('.TexttoBPMN-containerForm').removeClass('active');
-                        
+                        scrollToBPMNBloc();
                     }
                 }else {
                     
@@ -156,6 +156,7 @@ document.getElementById('webform-submission-start-the-demo-node-20652-form-ajax'
 	jQuery('#block-bonitasoft2022-start-the-demo-bpmn-ai').removeClass('active');
 	jQuery('.TexttoBPMN-loaderBPMN-new').addClass('active');
 	jQuery('.TexttoBPMN-containerForm').removeClass('active');
+    scrollToBPMNBloc();
 	let cookieValue = getCookie('userformdemofilled');
 	if (cookieValue) {
 	    if(cookieValue == 1) {
