@@ -371,7 +371,7 @@
   -webkit-border-radius: 20px;
   border-radius: 20px;
   display: inline-flex !important;
-  padding: 12px 14px 12px 14px !important;
+  padding: 38px 14px 12px 14px !important;
   align-items: center !important;
   gap: 2px !important;
   border-radius: 12px !important;
@@ -381,20 +381,10 @@
   backdrop-filter: blur(8px) !important;
   text-decoration: none;
   font-weight: 600;
-}
-
-
-.TexttoBPMN-containerForm input[type="submit"]:before {
-  content: "";
   background: url("https://cdn.prod.website-files.com/67b5a17836d358dffed424aa/67d2fdc6f7e9a3b62d30868e_stars-texttobpmn.svg"), 
             var(--Fill-Gradient-Red-Button, radial-gradient(279.05% 50% at 50% 50%, #FF3D48 0%, #D94B57 100%));
   background-repeat: no-repeat !important;
   background-position: 10% 50%;
-  width: 20px;
-  height: 21px;
-  margin-right: 10px;
-  display: block;
-  padding-left: 38px !important;
 }
 
 .Bloc-dynamic-Buttons-bpmnfile {
