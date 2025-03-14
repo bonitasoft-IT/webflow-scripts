@@ -222,7 +222,7 @@
   padding: 20px 50px;
   border-bottom: 1px solid #cecece;
   transition: 0.5s left linear;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   transition: opacity 0.25s linear;
 }
