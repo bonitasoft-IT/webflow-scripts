@@ -437,6 +437,7 @@ jQuery(document).ready(function() {
             jQuery('#block-bonitasoft2022-start-the-demo-bpmn-ai').removeClass('active');
             jQuery('.TexttoBPMN-loaderBPMN-new').addClass('active');
             jQuery('.TexttoBPMN-containerForm').removeClass('active');
+            scrollToBPMNBloc();
             let cookieValue = getCookie('userformdemofilled');
             if (cookieValue) {
                 if(cookieValue == 1) {
