@@ -187,7 +187,7 @@
   margin: 20px 0;
 }
 .TexttoBPMN-bpmnvisu .Bloc-dynamic-TitleText-TitleTextList-element-desc {
-  color: var(--grayscale--700);
+  color: #333848;
 }
 .TexttoBPMN-bpmnvisu .button_theme {
   font-size: 14px;
