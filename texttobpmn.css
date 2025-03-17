@@ -78,6 +78,7 @@
 }
 .TexttoBPMN-containerForm-charCount {
   text-align: right;
+  color: #333848;
 }
 .TexttoBPMN-containerForm.active {
   display: block;
