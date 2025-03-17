@@ -482,12 +482,12 @@ jQuery(document).ready(function() {
     /*
     jQuery('.field--name-field-bloc-type-paragraph .field--item:first-child .Bloc-dynamic-reverse-ReverseList-element-Button').addClass('TexttoBPMN-scrollbuttonContainer');
     jQuery('.field--name-field-bloc-type-paragraph .field--item:first-child .button_theme').addClass('TexttoBPMN-scrollbutton');
-    jQuery('.TexttoBPMN-scrollbutton').on('click', function(e) {
+    */
+    jQuery('.TexttoBPMN-scrollbutton a').on('click', function(e) {
         e.preventDefault();
         scrollToBPMNBloc();
     });
-    */
-
+    
     var delayInMilliseconds = 3000;
 
     setTimeout(function() {
