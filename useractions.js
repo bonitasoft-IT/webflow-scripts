@@ -258,12 +258,9 @@ function sendDatasBeforePrompt() {
     }else {
         userpromptbydaynumber = 1;
     }
-
-    /*temp code - remove when access to api enable*/
+    
     jQuery('.TexttoBPMN-loaderBPMN-new').removeClass('active');
     //console.log('function sendDatasBeforePrompt launched'); 
-    /*temp code*/
-	
     
     jQuery.ajax({
         url: 'https://text2bpmnleadmagnet-dev.bonitasoft.com/api/process_user_interaction',  // L'URL de ta page PHP
@@ -285,9 +282,10 @@ function sendDatasBeforePrompt() {
             // Code à exécuter lorsque l'appel est réussi
             //console.log(response);
             /*
-	    jQuery('.TexttoBPMN-loaderBPMN-new').removeClass('active');
-            tempsEcoule = getTempsecoule(debugdelaybegin);
-            console.log("Debug delay send and get return data before prompt : " + tempsEcoule + " secondes");
+            jQuery('.TexttoBPMN-loaderBPMN-new').removeClass('active');
+                tempsEcoule = getTempsecoule(debugdelaybegin);
+                console.log("Debug delay send and get return data before prompt : " + tempsEcoule + " secondes");
+            */
             if(response.error) {
                 
             }else if(!response.api_response) {
@@ -295,7 +293,7 @@ function sendDatasBeforePrompt() {
             }else {
                 
             }
-	    */
+	    
         },error: function(xhr, status, error) {
                 // Code à exécuter en cas d'erreur
                 //console.log('Erreur : ',status,error,xhr);
@@ -316,17 +314,7 @@ function sendDatas() {
     }else {
         userpromptbydaynumber = 1;
     }
-
-    /*temp code - remove when access to api enable*/
-    /*loadBpmn(response.api_response.bpmn_content);*/
-    //loadBpmnFromUrl('https://bonitasoft-it.github.io/webflow-scripts/diagram.bpmn');
-    //jQuery('.TexttoBPMN-promptandForm-title').html(textMessageTitleSuccess1);
-    //jQuery('.TexttoBPMN-bpmnvisu .Bloc-dynamic-Buttons').css('display','block');
-    /*jQuery('.TexttoBPMN-bpmnvisu .Bloc-dynamic-Buttons-bpmnfile').attr('href', response.fileurltemp);*/
-    //console.log('function sendDatas launched'); 
-    /*temp code*/
-
-    
+  
     jQuery.ajax({
         url: 'https://text2bpmnleadmagnet-dev.bonitasoft.com/api/process_user_interaction',  // L'URL de ta page PHP
         type: 'POST',     // Ou 'GET' selon tes besoins
@@ -349,84 +337,37 @@ function sendDatas() {
         success: function(response) {
             // Code à exécuter lorsque l'appel est réussi
             //console.log(response.error_code);
-	    //console.log(response);
-	    jQuery('.TexttoBPMN-loaderBPMN-new').removeClass('active');
+	        //console.log(response);
+	        jQuery('.TexttoBPMN-loaderBPMN-new').removeClass('active');
             tempsEcoule = getTempsecoule(debugdelaybegin);
-	     if(response && response.api_response && response.api_response.bpmn_content && response.api_response.bpmn_content != null) {
-		    loadBpmn(response.api_response.bpmn_content);
-		    jQuery('.TexttoBPMN-promptandForm-title').html(textMessageTitleSuccess1);
-		    jQuery('.TexttoBPMN-bpmnvisu .Bloc-dynamic-Buttons').css('display','block');
-		    createTempfileAndAssignToButton('bpmn_' + userBrowserFingerprintresult + '_' + userpromptbydaynumber + '.bpmn', 'Bloc-dynamic-Buttons-bpmnfile', response.api_response.bpmn_content);
-		    //jQuery('.TexttoBPMN-bpmnvisu .Bloc-dynamic-Buttons-bpmnfile').attr('href', response.fileurltemp);
-		    // Check if the cookie exists
-		    if (cookieValue) {
-			if(cookieValue < 3) {
-			    //console.log('Cookie exists:', cookieValue);
-			    // Increment the cookie value by 1 and update the cookie
-			    cookieValue = parseInt(cookieValue, 10) + 1;
-			    setCookie(cookieName, cookieValue, 1);
-			}else {
-			    jQuery('.TexttoBPMN-user-reached-limit').css('display','flex');
-			    userraisedbpmnlimit = true;
-			}
-		    } else {
-			// Create a new cookie with the current date as the value and expiration date set to the end of the day
-			setCookie(cookieName, '1', 1); // Set the cookie to expire in 1 day
-			cookieValue = getCookie(cookieName);
-			//console.log('New cookie created:', cookieValue);
-		    }
-		    scrollToBPMNBloc();
-		}else {
-		    displayErrortoUser();
-		    scrollToBPMNBloc();
-		}
-            /*
-	    jQuery('.TexttoBPMN-loaderBPMN-new').removeClass('active');
-            tempsEcoule = getTempsecoule(debugdelaybegin);
-            console.log("Debug delay send and get return data prompt : " + tempsEcoule + " secondes");
-            if(response.error_code) {
-                console.log('Erreur : '+response.error);
-                displayErrortoUser();
-                if(response.error_code == 429) {
-                    cookieValue = 3;
-                    userraisedbpmnlimit = true;
+            if(response && response.api_response && response.api_response.bpmn_content && response.api_response.bpmn_content != null) {
+                loadBpmn(response.api_response.bpmn_content);
+                jQuery('.TexttoBPMN-promptandForm-title').html(textMessageTitleSuccess1);
+                jQuery('.TexttoBPMN-bpmnvisu .Bloc-dynamic-Buttons').css('display','block');
+                createTempfileAndAssignToButton('bpmn_' + userBrowserFingerprintresult + '_' + userpromptbydaynumber + '.bpmn', 'Bloc-dynamic-Buttons-bpmnfile', response.api_response.bpmn_content);
+                //jQuery('.TexttoBPMN-bpmnvisu .Bloc-dynamic-Buttons-bpmnfile').attr('href', response.fileurltemp);
+                // Check if the cookie exists
+                if (cookieValue) {
+                if(cookieValue < 3) {
+                    //console.log('Cookie exists:', cookieValue);
+                    // Increment the cookie value by 1 and update the cookie
+                    cookieValue = parseInt(cookieValue, 10) + 1;
                     setCookie(cookieName, cookieValue, 1);
+                }else {
                     jQuery('.TexttoBPMN-user-reached-limit').css('display','flex');
+                    userraisedbpmnlimit = true;
                 }
-                scrollToBPMNBloc();
-            }else if(!response.api_response) {
-                //console.log('Erreur : '+response.message);
-                displayErrortoUser();
+                } else {
+                // Create a new cookie with the current date as the value and expiration date set to the end of the day
+                setCookie(cookieName, '1', 1); // Set the cookie to expire in 1 day
+                cookieValue = getCookie(cookieName);
+                //console.log('New cookie created:', cookieValue);
+                }
                 scrollToBPMNBloc();
             }else {
-                if(response && response.api_response && response.api_response.bpmn_content && response.api_response.bpmn_content != null) {
-                    loadBpmn(response.api_response.bpmn_content);
-                    jQuery('.TexttoBPMN-promptandForm-title').html(textMessageTitleSuccess1);
-                    jQuery('.TexttoBPMN-bpmnvisu .Bloc-dynamic-Buttons').css('display','block');
-                    jQuery('.TexttoBPMN-bpmnvisu .Bloc-dynamic-Buttons-bpmnfile').attr('href', response.fileurltemp);
-                    // Check if the cookie exists
-                    if (cookieValue) {
-                        if(cookieValue < 3) {
-                            //console.log('Cookie exists:', cookieValue);
-                            // Increment the cookie value by 1 and update the cookie
-                            cookieValue = parseInt(cookieValue, 10) + 1;
-                            setCookie(cookieName, cookieValue, 1);
-                        }else {
-                            jQuery('.TexttoBPMN-user-reached-limit').css('display','flex');
-                            userraisedbpmnlimit = true;
-                        }
-                    } else {
-                        // Create a new cookie with the current date as the value and expiration date set to the end of the day
-                        setCookie(cookieName, '1', 1); // Set the cookie to expire in 1 day
-                        cookieValue = getCookie(cookieName);
-                        //console.log('New cookie created:', cookieValue);
-                    }
-                    scrollToBPMNBloc();
-                }else {
-                    displayErrortoUser();
-                }
+                displayErrortoUser();
+                scrollToBPMNBloc();
             }
-	    */
         },
         error: function(xhr, status, error) {
             // Code à exécuter en cas d'erreur
@@ -479,10 +420,6 @@ function createTempfileAndAssignToButton(fileName, buttonClass, fileContent) {
 
 jQuery(document).ready(function() {
     // Define the click event handler for the button with ID 'your-button-id'
-    /*
-    jQuery('.field--name-field-bloc-type-paragraph .field--item:first-child .Bloc-dynamic-reverse-ReverseList-element-Button').addClass('TexttoBPMN-scrollbuttonContainer');
-    jQuery('.field--name-field-bloc-type-paragraph .field--item:first-child .button_theme').addClass('TexttoBPMN-scrollbutton');
-    */
     jQuery('.TexttoBPMN-scrollbutton a').on('click', function(e) {
         e.preventDefault();
         scrollToBPMNBloc();
@@ -503,9 +440,8 @@ jQuery(document).ready(function() {
             if (cookieValue) {
                 if(cookieValue == 1) {
                     //console.log('Cookie exists:', cookieValue);
-                    // Increment the cookie value by 1 and update the cookie
                 }else {
-                    //jQuery('.TexttoBPMN-user-reached-limit').css('display','flex');
+                
                 }
             }else {
                 // Create a new cookie with the current date as the value and expiration date set to the end of the day
