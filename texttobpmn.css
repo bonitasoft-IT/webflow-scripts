@@ -123,6 +123,7 @@
 }
 .TexttoBPMN-loaderBPMN-new .highlight-list li span {
   transition: 0.5 ease;
+  color: #002395;
 }
 .TexttoBPMN-loaderBPMN-new .highlight-list li:nth-child(1) {
   animation: highlight 1s linear;
