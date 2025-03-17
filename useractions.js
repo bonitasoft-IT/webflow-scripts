@@ -26,6 +26,7 @@ const textMessageTitleError3 = '😅 Something went wrong!<span class="Mascotte-
 const textMessageDescriptionError1 = "Your request can't be made into a process model as it is written.<br /> Try describing your process again - use simple terms, and be as clear as possible about who does what and in what order. <br /><div class='text-rich-text w-richtext'><h2 class='Bloc-dynamic-TitleText-TitleTextList-element-title'>You can try again!</h2></div>";
 const textMessageTitleProgress1 = 'Hang tight! Your BPMN model is being generated';
 const textMessageTitleSuccess1 = 'We have generated your BPMN model!';
+const UrlApi = 'https://text2bpmnleadmagnet-dev.bonitasoft.com/api/process_user_interaction';
 
 // Get the current date
 const currentDate = new Date();
@@ -263,7 +264,7 @@ function sendDatasBeforePrompt() {
     //console.log('function sendDatasBeforePrompt launched'); 
     
     jQuery.ajax({
-        url: 'https://text2bpmnleadmagnet-dev.bonitasoft.com/api/process_user_interaction',  // L'URL de ta page PHP
+        url: UrlApi,  // L'URL de ta page PHP
         type: 'POST',     // Ou 'GET' selon tes besoins
         contentType: 'application/json',
         data: JSON.stringify({
@@ -316,7 +317,7 @@ function sendDatas() {
     }
   
     jQuery.ajax({
-        url: 'https://text2bpmnleadmagnet-dev.bonitasoft.com/api/process_user_interaction',  // L'URL de ta page PHP
+        url: UrlApi,  // L'URL de ta page PHP
         type: 'POST',     // Ou 'GET' selon tes besoins
         contentType: 'application/json',
 
