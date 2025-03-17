@@ -64,7 +64,7 @@ function updateCharCount() {
     }else {
         if(userclickedtoboolean == false) {
             tempsEcoule = getTempsecoule(userbegintimetogenerate);
-            console.log("Temps écoulé : " + tempsEcoule + " secondes");
+            //console.log("Temps écoulé : " + tempsEcoule + " secondes");
             document.getElementById("user-timetoclickgenerate").innerHTML= tempsEcoule+'s';
             userbegintimetogeneratef = tempsEcoule;
         }
@@ -77,7 +77,7 @@ $("#user_prompt_bpmn").on("input", function() {
 
 document.getElementById('user_promp_bpmn_form').addEventListener('submit', async function(e) {
 	e.preventDefault(); // Empêche le rechargement de la page lors de la soumission
-  console.log('Clic to generate button ok');
+  //console.log('Clic to generate button ok');
   userBrowserFingerprintresult = await userBrowserFingerprint; 
   document.getElementById("user-empreintenavigateur").innerHTML = userBrowserFingerprintresult;
     document.getElementById("user-clickgenerate").innerHTML= 'true';
@@ -191,7 +191,7 @@ function getBrowserFingerprint() {
 
     // Combinaison des différentes informations pour créer une empreinte unique
     const fingerprint = `${userAgent} | ${screenResolution} | ${colorDepth} | ${language} | ${timezoneOffset} | ${platform} | ${plugins}`;
-    console.log('fingerprint'+fingerprint);
+    //console.log('fingerprint'+fingerprint);
     return fingerprint;
 }
 
@@ -261,7 +261,7 @@ function sendDatasBeforePrompt() {
 
     /*temp code - remove when access to api enable*/
     jQuery('.TexttoBPMN-loaderBPMN-new').removeClass('active');
-    console.log('function sendDatasBeforePrompt launched'); 
+    //console.log('function sendDatasBeforePrompt launched'); 
     /*temp code*/
 	
     
@@ -283,7 +283,7 @@ function sendDatasBeforePrompt() {
         }),
         success: function(response) {
             // Code à exécuter lorsque l'appel est réussi
-            console.log(response);
+            //console.log(response);
             /*
 	    jQuery('.TexttoBPMN-loaderBPMN-new').removeClass('active');
             tempsEcoule = getTempsecoule(debugdelaybegin);
@@ -298,7 +298,7 @@ function sendDatasBeforePrompt() {
 	    */
         },error: function(xhr, status, error) {
                 // Code à exécuter en cas d'erreur
-                console.log('Erreur : ',status,error,xhr);
+                //console.log('Erreur : ',status,error,xhr);
         },
 	 dataType: 'json', // Expect JSON response from the server
     });
@@ -323,7 +323,7 @@ function sendDatas() {
     //jQuery('.TexttoBPMN-promptandForm-title').html(textMessageTitleSuccess1);
     //jQuery('.TexttoBPMN-bpmnvisu .Bloc-dynamic-Buttons').css('display','block');
     /*jQuery('.TexttoBPMN-bpmnvisu .Bloc-dynamic-Buttons-bpmnfile').attr('href', response.fileurltemp);*/
-    console.log('function sendDatas launched'); 
+    //console.log('function sendDatas launched'); 
     /*temp code*/
 
     
@@ -349,7 +349,7 @@ function sendDatas() {
         success: function(response) {
             // Code à exécuter lorsque l'appel est réussi
             //console.log(response.error_code);
-	    console.log(response);
+	    //console.log(response);
 	    jQuery('.TexttoBPMN-loaderBPMN-new').removeClass('active');
             tempsEcoule = getTempsecoule(debugdelaybegin);
 	     if(response && response.api_response && response.api_response.bpmn_content && response.api_response.bpmn_content != null) {
@@ -430,8 +430,8 @@ function sendDatas() {
         },
         error: function(xhr, status, error) {
             // Code à exécuter en cas d'erreur
-	    console.log('Code d\'erreur : ' + xhr.status);
-            console.log('Erreur : ',status,error,xhr);
+	        //console.log('Code d\'erreur : ' + xhr.status);
+            //console.log('Erreur : ',status,error,xhr);
             jQuery('.TexttoBPMN-loaderBPMN-new').removeClass('active');
             displayErrortoUser();
 	    if(xhr.status === 429) {
@@ -472,7 +472,7 @@ function createTempfileAndAssignToButton(fileName, buttonClass, fileContent) {
 	    if((fileName.length > 0) && (buttonClass.length > 0) && (fileContent.length > 0)) {
 	    	createAndDownloadTempFile(fileContent, fileName, fileType);
 	    }else {
-	    	console.log('Error to generate link BPMN button');
+	    	//console.log('Error to generate link BPMN button');
 	    }
 	});
 }
@@ -494,7 +494,7 @@ jQuery(document).ready(function() {
         const formOne = document.getElementById('plz-form-3ecd1ded-f3fc-4cf6-9c82-104d7da65669') // id du form ou un selector de ton choix
 
         formOne.addEventListener('submit', function(e) {
-            console.log('Text to BPMN form validation ok');
+            //console.log('Text to BPMN form validation ok');
             jQuery('.TexttoBPMN-promptandForm-title').html("Hang tight! Your BPMN model is being generated");
             jQuery('#block-bonitasoft2022-start-the-demo-bpmn-ai').removeClass('active');
             jQuery('.TexttoBPMN-loaderBPMN-new').addClass('active');
