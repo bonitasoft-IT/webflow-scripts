@@ -218,7 +218,9 @@
   top: 105px;
   display: flex;
   opacity: 0;
-  background: rgba(0, 0, 0, 0.4);
+  -webkit-backdrop-filter: blur(11px);
+  backdrop-filter: blur(11px);
+  background-color: #0b142f33;
   left: 0;
   width: 100%;
   height: calc(100% - 105px);
@@ -230,6 +232,9 @@
   align-items: flex-start;
   justify-content: center;
   transition: opacity 0.25s linear;
+}
+#block-bonitasoft2022-start-the-demo-bpmn-ai > div {
+  position: relative;
 }
 @media (max-width: 1240px) {
   #block-bonitasoft2022-start-the-demo-bpmn-ai {

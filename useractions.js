@@ -27,6 +27,7 @@ const textMessageDescriptionError1 = "Your request can't be made into a process 
 const textMessageTitleProgress1 = 'Hang tight! Your BPMN model is being generated';
 const textMessageTitleSuccess1 = 'We have generated your BPMN model!';
 const UrlApi = 'https://text2bpmnleadmagnet-dev.bonitasoft.com/api/process_user_interaction';
+const closePopup = document.getElementById('close-popup'); // Bouton de fermeture
 
 // Get the current date
 const currentDate = new Date();
@@ -461,3 +462,13 @@ jQuery(document).ready(function() {
     }, delayInMilliseconds);
 
 });
+
+function closePopupFunction() {
+    jQuery('#block-bonitasoft2022-start-the-demo-bpmn-ai').removeClass('active');
+  }
+
+  if (closePopup) {
+    closePopup.addEventListener('click', function() {
+      closePopupFunction();
+    });
+  }
