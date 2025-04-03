@@ -1,3 +1,47 @@
+// Détection de la langue à partir de l'URL
+const pathname = window.location.pathname;
+
+let lang = 'en'; // Valeur par défaut
+if (pathname.startsWith('/fr/')) {
+  lang = 'fr';
+} else if (pathname.startsWith('/es/')) {
+  lang = 'es';
+}
+
+// Libellés traduits en fonction de la langue
+const translatedLabels = {
+  en: {
+    textMessageTitleError1 : 'Please enter a prompt before generating the BPMN model.',
+    textMessageTitleError2 : 'Oops! It looks like your post contains spam content. If you believe otherwise, please contact us. We apologize for the inconvenience.',
+    textMessageTitleError3 : '😅 Something went wrong!<span class="Mascotte-Bonita"></span>',
+    textMessageDescriptionError1 : "Your request can't be made into a process model as it is written.<br /> Try describing your process again - use simple terms, and be as clear as possible about who does what and in what order. <br /><div class='text-rich-text w-richtext'><h2 class='Bloc-dynamic-TitleText-TitleTextList-element-title'>You can try again!</h2></div>",
+    textMessageTitleProgress1 : 'Hang tight! Your BPMN model is being generated',
+    textMessageTitleSuccess1 : 'We have generated your BPMN model!',
+    tetareaCharacters : 'characters' 
+  },
+  fr: {
+    textMessageTitleError1 : 'Veuillez saisir une instruction avant de générer le modèle BPMN.',
+    textMessageTitleError2 : 'Oups ! Il semble que votre message contienne du contenu indésirable. Si vous pensez que ce n’est pas le cas, veuillez nous contacter. Nous nous excusons pour la gêne occasionnée.',
+    textMessageTitleError3 : '😅 Une erreur est survenue !<span class="Mascotte-Bonita"></span>',
+    textMessageDescriptionError1 : "Votre demande ne peut pas être transformée en un modèle de processus tel qu'elle est rédigée.<br /> Essayez de décrire à nouveau votre processus – utilisez des termes simples et soyez aussi clair que possible sur qui fait quoi et dans quel ordre. <br /><div class='text-rich-text w-richtext'><h2 class='Bloc-dynamic-TitleText-TitleTextList-element-title'>Vous pouvez réessayer !</h2></div>",
+    textMessageTitleProgress1 : 'Un instant ! Votre modèle BPMN est en cours de génération',
+    textMessageTitleSuccess1 : 'Nous avons généré votre modèle BPMN !',
+    tetareaCharacters : 'caractères'
+  },
+  es: {
+    textMessageTitleError1 : 'Por favor, introduce un mensaje antes de generar el modelo BPMN.',
+    textMessageTitleError2 : '¡Ups! Parece que tu publicación contiene contenido no deseado. Si crees que no es así, por favor contáctanos. Pedimos disculpas por las molestias.',
+    textMessageTitleError3 : '😅 ¡Algo salió mal!<span class="Mascotte-Bonita"></span>',
+    textMessageDescriptionError1 : "Tu solicitud no puede convertirse en un modelo de proceso tal como está escrita.<br /> Intenta describir nuevamente tu proceso: usa términos simples y sé lo más claro posible sobre quién hace qué y en qué orden. <br /><div class='text-rich-text w-richtext'><h2 class='Bloc-dynamic-TitleText-TitleTextList-element-title'>¡Puedes intentarlo de nuevo!</h2></div>",
+    textMessageTitleProgress1 : '¡Un momento! Tu modelo BPMN se está generando',
+    textMessageTitleSuccess1 : '¡Hemos generado tu modelo BPMN!',
+    tetareaCharacters : 'caracteres'
+  }
+};
+
+// Constante remplie selon la langue
+const labels = translatedLabels[lang];
+
 var userbegingenerateboolean = false;
 var userbegintimetogenerate = 0;
 var userbegintimetogeneratef = 0;
@@ -20,12 +64,12 @@ const maxPromptSize = 500;
 const delayInMilliseconds = 500;
 const motsInterdits = ["http://","https://","www","ftp://","mailto:","smb://","afp://","file://","gopher://","news://","ssl://","sslv2://","sslv3://","tls://","tcp://","udp://","url=","href=dating","sex","porn","fuck","free","captcha","spam","hello. and bye.","mail.ru","reading this message","reading my message","reading through my message","are whitelisted","great website","late client","ciao a tutti","viagra","cheap","casino","advertising","keyword","promotion","porntubered","    :","   :","ps: how are you?","beautiful models","privet","beautiful girls","best girls","dosug","trustable","look at the","v7bomdefex","what is it -","email marketing","read your site","SEO","seo","mot1", "mot2", "mot3"]; // Liste des mots à exclure
 const messageErreur = document.getElementById("messageErreur");
-const textMessageTitleError1 = 'Please enter a prompt before generating the BPMN model.';
-const textMessageTitleError2 = 'Oops! It looks like your post contains spam content. If you believe otherwise, please contact us. We apologize for the inconvenience.';
-const textMessageTitleError3 = '😅 Something went wrong!<span class="Mascotte-Bonita"></span>';
-const textMessageDescriptionError1 = "Your request can't be made into a process model as it is written.<br /> Try describing your process again - use simple terms, and be as clear as possible about who does what and in what order. <br /><div class='text-rich-text w-richtext'><h2 class='Bloc-dynamic-TitleText-TitleTextList-element-title'>You can try again!</h2></div>";
-const textMessageTitleProgress1 = 'Hang tight! Your BPMN model is being generated';
-const textMessageTitleSuccess1 = 'We have generated your BPMN model!';
+const textMessageTitleError1 = labels.textMessageTitleError1;
+const textMessageTitleError2 = labels.textMessageTitleError2;
+const textMessageTitleError3 = labels.textMessageTitleError3;
+const textMessageDescriptionError1 =  labels.textMessageDescriptionError1;
+const textMessageTitleProgress1 = labels.textMessageTitleProgress1;
+const textMessageTitleSuccess1 = labels.textMessageTitleSuccess1;
 const UrlApi = 'https://text2bpmnleadmagnet-dev.bonitasoft.com/api/process_user_interaction';
 const closePopup = document.getElementById('close-popup'); // Bouton de fermeture
 
@@ -43,7 +87,7 @@ function updateCharCount() {
     const description = document.getElementById('user_prompt_bpmn');
     const charCount = document.getElementById('charCount');
     const remaining = maxPromptSize - description.value.length;
-    charCount.textContent = description.value.length + '/500 characters';
+    charCount.textContent = description.value.length + '/500 ' + labels.tetareaCharacters;
     //document.getElementById("user-empreintenavigateur").innerHTML = userBrowserFingerprintresult;
     //console.log('userBrowserFingerprintresult : '+userBrowserFingerprintresult);
     if(description.value.length == maxPromptSize || description.value.length > maxPromptSize) {  
@@ -154,7 +198,7 @@ document.getElementById('user_promp_bpmn_form').addEventListener('submit', async
 
 document.getElementById('webform-submission-start-the-demo-node-20652-form-ajax').addEventListener('submit', async function(e) {
 	e.preventDefault(); // Empêche le rechargement de la page lors de la soumission
-	jQuery('.TexttoBPMN-promptandForm-title').html("Hang tight! Your BPMN model is being generated");
+	jQuery('.TexttoBPMN-promptandForm-title').html(textMessageTitleProgress1);
 	jQuery('#block-bonitasoft2022-start-the-demo-bpmn-ai').removeClass('active');
 	jQuery('.TexttoBPMN-loaderBPMN-new').addClass('active');
 	jQuery('.TexttoBPMN-containerForm').removeClass('active');
@@ -434,7 +478,7 @@ jQuery(document).ready(function() {
 
         formOne.addEventListener('submit', function(e) {
             //console.log('Text to BPMN form validation ok');
-            jQuery('.TexttoBPMN-promptandForm-title').html("Hang tight! Your BPMN model is being generated");
+            jQuery('.TexttoBPMN-promptandForm-title').html(textMessageTitleProgress1);
             jQuery('#block-bonitasoft2022-start-the-demo-bpmn-ai').removeClass('active');
             jQuery('.TexttoBPMN-loaderBPMN-new').addClass('active');
             jQuery('.TexttoBPMN-containerForm').removeClass('active');
