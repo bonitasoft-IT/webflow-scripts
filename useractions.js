@@ -70,7 +70,7 @@ const textMessageTitleError3 = labels.textMessageTitleError3;
 const textMessageDescriptionError1 =  labels.textMessageDescriptionError1;
 const textMessageTitleProgress1 = labels.textMessageTitleProgress1;
 const textMessageTitleSuccess1 = labels.textMessageTitleSuccess1;
-const UrlApi = 'https://text2bpmnleadmagnet.bonitasoft.com/api/process_user_interaction';
+const UrlApi = 'https://text2bpmnleadmagnet-dev.bonitasoft.com/api/process_user_interaction';
 const closePopup = document.getElementById('close-popup'); // Bouton de fermeture
 
 // Get the current date
