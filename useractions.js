@@ -475,11 +475,11 @@ jQuery(document).ready(function() {
 
     setTimeout(function() {
         if(lang == 'fr') {
-            const formOne = document.getElementById('plz-form-e9e81998-ca48-4a02-8749-33ae41ac409a') 
+            var formOne = document.getElementById('plz-form-e9e81998-ca48-4a02-8749-33ae41ac409a') 
         }else if(lang == 'es') {
-            const formOne = document.getElementById('plz-form-6cc638f1-738d-4280-88d1-e5bd5afe6d8c')
+            var formOne = document.getElementById('plz-form-6cc638f1-738d-4280-88d1-e5bd5afe6d8c')
         }else {
-            const formOne = document.getElementById('plz-form-3ecd1ded-f3fc-4cf6-9c82-104d7da65669')
+            var formOne = document.getElementById('plz-form-3ecd1ded-f3fc-4cf6-9c82-104d7da65669')
         }
         formOne.addEventListener('submit', function(e) {
             //console.log('Text to BPMN form validation ok');
