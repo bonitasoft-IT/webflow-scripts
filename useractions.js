@@ -474,8 +474,13 @@ jQuery(document).ready(function() {
     var delayInMilliseconds = 3000;
 
     setTimeout(function() {
-        const formOne = document.getElementById('plz-form-3ecd1ded-f3fc-4cf6-9c82-104d7da65669') // id du form ou un selector de ton choix
-
+        if(lang == 'fr') {
+            const formOne = document.getElementById('plz-form-e9e81998-ca48-4a02-8749-33ae41ac409a') 
+        }else if(lang == 'es') {
+            const formOne = document.getElementById('plz-form-6cc638f1-738d-4280-88d1-e5bd5afe6d8c')
+        }else {
+            const formOne = document.getElementById('plz-form-3ecd1ded-f3fc-4cf6-9c82-104d7da65669')
+        }
         formOne.addEventListener('submit', function(e) {
             //console.log('Text to BPMN form validation ok');
             jQuery('.TexttoBPMN-promptandForm-title').html(textMessageTitleProgress1);
