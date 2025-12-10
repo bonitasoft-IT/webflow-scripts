@@ -442,7 +442,8 @@
   font-weight: 600;
 }
 
-#plz-form-3ecd1ded-f3fc-4cf6-9c82-104d7da65669.jsonform-hasrequired {
+#plz-form-3ecd1ded-f3fc-4cf6-9c82-104d7da65669.jsonform-hasrequired, form["data-form-id=819842f3-76f5-41c4-888e-c27a3503feb6"]
+{
   display: flex !important;
   padding: 48px !important;
   flex-direction: column !important;
