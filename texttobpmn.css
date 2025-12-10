@@ -442,7 +442,7 @@
   font-weight: 600;
 }
 
-#plz-form-3ecd1ded-f3fc-4cf6-9c82-104d7da65669.jsonform-hasrequired, form[data-form-id="819842f3-76f5-41c4-888e-c27a3503feb6"]
+#plz-form-3ecd1ded-f3fc-4cf6-9c82-104d7da65669.jsonform-hasrequired, form[data-form-id="819842f3-76f5-41c4-888e-c27a3503feb6"], form[data-form-id="9c2dfb80-0504-4863-815c-2b93db60905b"], form[data-form-id="fc78a8ce-c0ca-4173-a80a-5da24411582b"]
 {
   display: flex !important;
   padding: 48px !important;
@@ -453,6 +453,7 @@
   flex-shrink: 0 !important;
   border-radius: 12px !important;
   background: var(--Grayscale-White, #FFF) !important;
+  text-align: left;
   }
 
   .control-label {
